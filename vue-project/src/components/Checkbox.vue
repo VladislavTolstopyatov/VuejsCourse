@@ -6,6 +6,7 @@ vue
 
 <script setup lang="ts">
 import {computed, ref} from 'vue'
+import mitt from "mitt";
 
 const props = defineProps({
   way: {
@@ -16,12 +17,15 @@ const props = defineProps({
 
 const v = ref(0)
 const check = ref(true)
+const emitter = mitt()
 
 const emits = defineEmits(["change"])
 
 const addV = (p: number, e: Event | null = null) => {
   v.value += p
   emits('change', v.value)
+
+  emitter.emit('CHANGE')
 }
 
 const v2 = computed(() => v.value * 2)

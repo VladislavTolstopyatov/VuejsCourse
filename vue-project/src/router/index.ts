@@ -1,8 +1,10 @@
 import {createRouter, createWebHistory, type RouteRecordRaw} from 'vue-router'
 import HomePage from "../components/pages/HomePage.vue";
 import SecondPage from "../components/pages/SecondPage.vue";
+import GamePage from "../components/pages/GamePage.vue";
 
 export const ROUTE_NAME = {
+    GAME: 'GAME',
     HOME: 'HOME',
     SECOND: 'SECOND',
     SECOND_P: "SECOND_P",
@@ -10,8 +12,13 @@ export const ROUTE_NAME = {
 
 export const routes: Readonly<RouteRecordRaw[]> = [
     {
-        name: ROUTE_NAME.HOME,
+        name: ROUTE_NAME.GAME,
         path: '/',
+        component: GamePage
+    },
+    {
+        name: ROUTE_NAME.HOME,
+        path: '/home',
         component: HomePage
     },
     {
