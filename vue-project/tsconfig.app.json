@@ -11,7 +11,9 @@
 
     // Path mapping for cleaner imports.
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      // vuex 4 не указывает свои типы в package.json "exports", поэтому подсказываем путь вручную
+      "vuex": ["./node_modules/vuex/types/index.d.ts"]
     },
 
     // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.
